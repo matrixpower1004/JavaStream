@@ -17,8 +17,10 @@ public class Chapter8Section6 {
 
     public static void main(String[] args) {
         Map<Integer, String> numberMap = Stream.of(3, 5, -4, 2, 6)
-            .collect(Collectors.toMap(x -> x, x -> "Number is " + x));
-        System.out.println(numberMap);
+//            .collect(Collectors.toMap(x -> x, x -> "Number is " + x));
+            // 단순히 x - > x로 가는 함수는 Function.identity()로 대체할 수 있다.
+            .collect(Collectors.toMap(Function.identity(), x -> "Number is " + x));
+//        System.out.println(numberMap);
 
         User user1 = User.builder()
             .id(101)
@@ -72,7 +74,7 @@ public class Chapter8Section6 {
             .build();
         List<Order> orders = Arrays.asList(order1, order2, order3, order4);
 
-        // Todo: orderId에서 OrderStatus로 mapping이 되는
+        // Todo: Create a map from order id to order status
         Map<Long, OrderStatus> orderIdToOrderStatusMap = orders.stream()
             .collect(Collectors.toMap(Order::getId, Order::getStatus));
         System.out.println(orderIdToOrderStatusMap.get(1003L));
