@@ -28,7 +28,7 @@ public class Chapter8Section7 {
         // 이번에는 mapping을 이용해서 한 단계 더 나가보자. 키는 Integer, unitDigit는 이것입니다라는 String 값을 value로 가지도록 만들어보자.
         Map<Integer, List<String>> unitDigitStrMap = numbers.stream()
             .collect(Collectors.groupingBy(number -> number % 10,
-                Collectors.mapping(number -> "unit digit is" + number, Collectors.toList())));
+                Collectors.mapping(number -> "unit digit is " + number, Collectors.toList())));
         System.out.println(unitDigitStrMap);
 
 
@@ -59,11 +59,13 @@ public class Chapter8Section7 {
         List<Order> orders = Arrays.asList(order1, order2, order3, order4);
 
         // Todo: create a map from order status to the list of corresponding orders
+        // key는 OrderStatus, 같은 OrderStatus끼리 묶어서 map을 만든다.
         Map<OrderStatus, List<Order>> orderStausMap = orders.stream()
             .collect(Collectors.groupingBy(Order::getStatus));
-//        System.out.println(orderStausMap);
+        System.out.println(orderStausMap);
 
-        // Stream을 이용하면 이렇게 간단하게 grouping과 매핑이 간단해진다.
+        // 이번에는 mapping과 reducing을 이용해서 한단계 더 나가보자.
+        // key: OrderStatus, value: SumOfTheAmount(List 안에 있는 Order들의 값의 합
         Map<OrderStatus, BigDecimal> orderStatusToSumOfAmountMap = orders.stream()
             .collect(Collectors.groupingBy(
                 Order::getStatus,

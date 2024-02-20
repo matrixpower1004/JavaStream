@@ -43,7 +43,7 @@ public class Chapter8Section9 {
         users.stream()
             .filter(user -> !user.isVerified())
             .forEach(emailService::sendVerifyYourEmail);
-        // 지난 시간에 우리가 했던 예제들도 메서드 레퍼런스와 forEach까지 이요하면 더 간단하게 만들 수 있다.
+        // 지난 시간에 우리가 했던 예제들도 메서드 레퍼런스와 forEach까지 이용하면 더 간단하게 만들 수 있다.
         // 아예 각 for문을 한줄로 만들 수 있다. -> Todo 항목
 
         // 기존의 for문이 index를 사용했다면?

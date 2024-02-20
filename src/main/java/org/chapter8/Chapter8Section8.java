@@ -15,9 +15,9 @@ public class Chapter8Section8 {
         // 이 numbers를 짝수인 그룹과 홀수인 그룹으로 쪼개보자.
         Map<Boolean, List<Integer>> numberPartitions = numbers.stream()
             .collect(Collectors.partitioningBy(number -> number % 2 == 0));
-        System.out.println("Even Number: " + numberPartitions.get(true));
-        System.out.println("Even Number: " + numberPartitions.get(false));
-        // 이렇게 partitioningBy는 어떤 조건을 만족하는 데이터들과 만족하지 않는 데이터들. 이렇게 두 그릅으로 분리를 할 때 자주 사용한다.
+//        System.out.println("Even Number: " + numberPartitions.get(true));
+//        System.out.println("Odd Number: " + numberPartitions.get(false));
+        // 이렇게 partitioningBy는 어떤 조건을 만족하는 데이터들과 만족하지 않는 데이터들. 이렇게 두 그룹으로 분리를 할 때 자주 사용한다.
 
         User user1 = User.builder()
             .id(101)

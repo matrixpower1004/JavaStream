@@ -56,8 +56,8 @@ public class Chapter8Section10 {
 //        users.stream()
 //            .filter(user -> !user.isVerified())
 //            .forEach(emailService::sendVerifyYourEmail);
-//        long endTiem = System.currentTimeMillis();
-//        System.out.println("Sequential: " + (endTiem - startTime + "ms") );
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Sequential: " + (endTime - startTime + "ms") );
 
 
         // 똑같은 코드를 이번에는 병렬처리해 보자.
@@ -65,8 +65,8 @@ public class Chapter8Section10 {
 //        users.stream().parallel()
 //            .filter(user -> !user.isVerified())
 //            .forEach(emailService::sendVerifyYourEmail);
-//        endTiem = System.currentTimeMillis();
-//        System.out.println("Parallel: " + (endTiem - startTime + "ms") );
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Parallel: " + (endTime - startTime + "ms") );
 
         List<User> processedUsers = users.parallelStream()
             .map(user -> {
