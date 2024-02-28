@@ -30,21 +30,6 @@ public class User {
         return Optional.ofNullable(this.emailAddress);
     }
 
-    public User changeCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    public User changeName(String userName) {
-        this.name = userName;
-        return this;
-    }
-
-    public User changeVerified(boolean verified) {
-        isVerified = verified;
-        return this;
-    }
-
     // Builder를 리턴해주는 메서드를 UserClass안에 만들어준다. Builder의 생성자는 private라 외부에서 접근이 불가능하다.
     public static Builder builder(int id, String name) {
         return new Builder(id, name);
