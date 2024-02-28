@@ -2,7 +2,7 @@ package org.chapter10;
 
 import org.chapter10.model.User;
 
-public class Chapter10Section2 {
+public class  Chapter10Section2 {
 
     public static void main(String[] args) {
 

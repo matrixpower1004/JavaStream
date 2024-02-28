@@ -7,7 +7,6 @@ import org.chapter9.model.OrderLine;
 
 public class OrderLIneAggregationPriceProcessor implements Function<Order, Order> {
 
-
     @Override
     public Order apply(Order order) {
         return order.setAmount(order.getOrderLines().stream()

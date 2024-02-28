@@ -26,10 +26,11 @@ public class Chapter9Section3 {
                 OrderLine.builder().amount(BigDecimal.valueOf(2000)).build()
             ))
             .build();
-        List<Function<Order, Order>> priceProcessors = getPriceProcessors(unprocessdOrder);
 
         // 그 다음에 이 priceProcessor들을 하나로 합쳐서 합성된 priceProcessor를 넘기는데
         // 이 PriceProcessor는 최종적으로 Order를 받아서 Order는 넘기는 함수가 된다.
+        List<Function<Order, Order>> priceProcessors = getPriceProcessors(unprocessdOrder);
+
         Function<Order, Order> mergePriceProcessor = priceProcessors.stream()
             .reduce(Function.identity(), Function::andThen);
             // 함수들들 전부 andThen으로 엮어주면 되는데 이럴 때는 reduce를 쓸 수 있다.
